@@ -50,19 +50,68 @@ display：inline-table呢？ 外在内联盒子 内在table盒子；可以和文
 css世界中盒子分内在盒子和外在盒子；显示也分内在显示和外在显示；尺寸也分内部尺寸和外部尺寸
 外部尺寸与流体特效；
 1正常的流宽度
-例如 a{
+例如 
+
+```css
+a{
       display：block；（内联inline 转block）
       width：100%      （多余了没必要写）
 }
 
+```
+
 2.格式化宽度
+格式化宽度出现在绝对定位模型中。
+例如
+
+```css
+div{
+    position:absolute;
+    left:20px;
+    right:20px;
+}
+```
+假设div最近的具有定位特性的祖先元素宽度为1000px;则这个div元素宽度则为960px
 
 
 
 > 所谓流动性：并不是看上去宽度100&显示那么简单；而是一种margin/padding/border/connent 内容区域自动分配水平空间的机制；
 
+内部尺寸与流体性；
+对于一个元素如果里面没有内容，宽度为0，那么就应用了“内部尺寸”
+对于一个元素如果display值为inline-block 那么即使其里面的内容再多，只要是正常的文本，宽度也不会超过容器；
+
+比如：按钮是css世界上既具有代表性的inline-block特性的元素；
+> 按钮文字越多宽度越长，文字足够多则换行
+> input标签的按钮 默认是white-space：pre 是不会换行的，需要pre改成normal
 
 
+3.最大宽度
+最大的连续内联盒子的宽度
+比如
+
+```css
+<div>
+  "我是文本"
+   <span>我在inline标签内</span>
+   <button>我是按钮</button>
+   <img src='' alt='12'/>
+   <br/>
+   "我是下一行"
+   <p>我是一段描述</p>
+</div>
+
+```
+在最大宽度模型下，最后一个宽度是第一个连续内联盒子的宽度；
+
+
+width值作用细节
+css流体布局下的宽度分离原则
+嵌套一层标签，子元素因为width使用默认的auto；所以会填满整个父容器；
+
+
+改变width/height作用细节的box-sizing；
+box-sizing：盒尺寸；
 
 
 
