@@ -116,6 +116,32 @@ box-sizing：盒尺寸；
 
 
 ## 3.3 height:auto
+## 3.4 内联元素
+
+
+幽灵空白节点是内联盒模型中一个非常重要的概念
+
+存在的前提：文档声明必须是html5的；
+
+```css
+<!document html>
+<html>
+我们可以举一个简单的例子
+div{
+    background-color：#cd0000；
+    
+}
+
+span{
+    display：inline-block
+}
+
+<div><span></span></div>
+
+```
+
+结果div的高度不是0  是18？
+
 
 
 
