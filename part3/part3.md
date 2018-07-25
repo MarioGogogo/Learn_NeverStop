@@ -142,9 +142,6 @@ span{
 ![image](http://pc838vczo.bkt.clouddn.com/%E5%B9%BD%E7%81%B5%E7%A9%BA%E7%99%BD.png)
 
 
-
-
-
 结果div的高度不是0  是18？
 
 
