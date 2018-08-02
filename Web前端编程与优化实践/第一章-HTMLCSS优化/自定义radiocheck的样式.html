@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义radio样式</title>
+    <style>
+         input[type=checkbox]{
+             display: none;
+         }
+
+         .checkbox{
+             display:inline-block;
+             width: 26px;
+             height: 26px;
+             border:1px solid #ddd;
+             border-radius: 4px;
+             box-shadow: 0 1px 2px 2px inset #5d5d5d;
+         }
+
+         input[type=checkbox]:checked +.checkbox{
+             background: red;
+         }
+
+
+
+    </style>
+</head>
+<body>
+       <label>
+            <input type="checkbox">
+            <span class="checkbox"></span><h1>点我吧</h1>
+       </label>
+       <h1>使用label的原因：为了能够单机span的时候改变checkbox的状态</h1>
+
+</body>
+</html>

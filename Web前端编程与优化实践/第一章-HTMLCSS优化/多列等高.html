@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多列等高</title>
+    <style>
+        @media(max-width:500px) {
+            .wrapper {
+                display: block;
+            }
+            .wrapper>div {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .wrapper {
+            /* margin-top: 100px;
+            margin-left: 100px; */
+            display: table;
+            border-spacing: 20px;
+            /*td间距 */
+        }
+
+
+        /* .wrapper>div{
+            margin-left: 20px;
+            float: left;
+            width:200px;
+            background-color: #ececec;
+            border:1px solid #ccc;
+            padding-bottom: 900px;
+            margin-bottom: -880px;
+            overflow: hidden;
+        } */
+
+        /* 第一种办法 margin负值法 */
+
+        /* 第二种办法 借用table 好处可以用在媒体查询 */
+
+        .wrapper>div {
+            display: table-cell;
+            width: 400px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: #ececec;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div>column1苹果品种数以千计，分为酒用品种、烹调品种、尾食品种3大类。3类品种的大小、颜色、香味、光滑度 （可能还有脆性、风味）等特点均有差别。不少品种含糖较高，中等酸度，丹宁含量很低。苹果除生食外，烹食方法也很多，常用作点心馅，苹果馅烤饼可能是最早的美国式甜食。炸苹果常与香肠、猪排等菜肴同食，尤其在欧洲特别普遍。最新的分类学证据显示苹果"家族"（属）的成员也不过38多种，要查出一个“族谱”似乎也并非难事，但是每个种似乎都跟我们吃到的苹果有共同之处，并且每个种都可以提供一些水果，虽然有些味道着实不怎么样。从这个角度看，苹果属的每个种都有可能为超市中苹果的甘甜贡献了一分力量。大概在2000年前，世界各地的果园都有。
+            。
+        </div>
+        <div>column2 香蕉（学名：Musa nana Lour.）芭蕉科芭蕉属植物，又指其果实，热带地区广泛种植。香蕉味香、富含营养，植株为大型草本，从根状茎发出，由叶鞘下部形成高3～6公尺(10～20尺)的假杆；叶长圆形至椭圆形，有的长达3～3.5公尺(10～11.5尺)，宽65公分(26寸)，10～20枚簇生茎顶。穗状花序下垂
+            [1] ，由假杆顶端抽出，花多数，淡黄色；果序弯垂，结果10～20串，约50～150个。植株结果后枯死，由根状茎长出的吸根继续繁殖，每一根株可活多年。原产亚洲东南部，台湾、海南、广东、广西等均有栽培。 [1]
+        </div>
+        <div>column3 水蜜桃（学名：Prunus persica 、meltingfleshed peach）：蔷薇科、桃属植物。南方品种群中肉质柔软多汁呈软溶质的一类品种。果实顶部平圆，熟后易剥皮，多粘核。 [1] 属于球形可食用水果类，水蜜桃有美肤、清胃、润肺、祛痰等功效。它的蛋白质含量比苹果、葡萄高一倍，比梨子高七倍，铁的含量比苹果多三倍，比梨子多五倍，富含多种维生素，其中维生素C最高。水蜜桃树属于落叶小乔木植物，一般树高3-4米。开始结果早，定植2～3年开始结果，6～7年达盛果期，15～20年后渐入衰老，寿命较短，较好的25～30年还保持高产量。
+        </div>
+        <div>column4 菠萝（学名：Ananas comosus），是热带水果之一。福建和台湾地区称之为旺梨或者旺来（ông-lâi），新马一带称为黄梨，大陆及香港称作菠萝。有70多个品种，岭南四大名果之一。
+        </div>
+    </div>
+</body>
+
+</html>
