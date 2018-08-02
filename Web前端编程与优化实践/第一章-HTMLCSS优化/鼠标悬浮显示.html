@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <style>
+    /*重置所有元素的三个样式为零，一般不推荐这样使用，但是我测试一般这么写*/
+
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    body {
+      font-size: 12px;
+      font-family: "微软雅黑";
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    ul>li {
+      /* 选择一级菜单的li元素 */
+      float: left;
+      /*让li元素排成一排*/
+      display: block;
+      width: 80px;
+      height: 40px;
+      /*设置它们的宽度和高度*/
+      position: relative;
+      /*设置为相对定位，这很重要*/
+      text-align: center;
+      /*这两行是让里面的文字水平垂直居中对齐*/
+      line-height: 40px;
+      background: #12c2e9;
+      background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+      background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    }
+
+    ol {
+      /* 选择二级菜单 */
+      position: absolute;
+      /* 设置为绝对定位，这很重要 */
+      top: 100%;
+      /* 设置二级菜单的顶边位于一级菜单的底部*/
+      display: none;
+      /* 设置二级菜单为不可见 */
+    }
+
+    ol::before{
+       content: '';
+       position: absolute;
+       left:30px;
+       top:0px;
+       border-bottom:10px solid red;
+       border-left:6px solid transparent;
+       border-right:6px solid transparent;
+
+    }
+
+    ol>li:first-child{
+      margin-top: 9px;
+    }
+    ol>li {
+      /* 选择二级菜单li元素 */
+      width: 80px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      /* 设置二级菜单单元的顶部间隙 */
+      background: #12c2e9;
+      background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+      background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    }
+    ul>li:hover>ol {
+      display: block;
+    }
+    /* 设置鼠标悬停于一级菜单时，二级菜单显示 */
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <a href="#">CSS</a>
+      <!-- 一级菜单 下面相同 -->
+      <ol>
+        <!-- 二级菜单 下面相同 -->
+        <li>
+          <a href="#">选择器</a>
+        </li>
+        <li>
+          <a href="#">伪类</a>
+        </li>
+        <li>
+          <a href="#">动画</a>
+        </li>
+        <li>
+          <a href="#">布局</a>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <a href="#">HTML</a>
+      <ol>
+        <li>
+          <a href="#">多媒体</a>
+        </li>
+        <li>
+          <a href="#">表单</a>
+        </li>
+        <li>
+          <a href="#">文档类型</a>
+        </li>
+        <li>
+          <a href="#">DOM</a>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <a href="#">XML</a>
+      <ol>
+        <li>
+          <a href="#">DOM</a>
+        </li>
+        <li>
+          <a href="#">解析</a>
+        </li>
+        <li>
+          <a href="#">样式</a>
+        </li>
+        <li>
+          <a href="#">Ajax</a>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <a href="#">javascript</a>
+      <ol>
+        <li>
+          <a href="#">操作DOM</a>
+        </li>
+        <li>
+          <a href="#">Ajax</a>
+        </li>
+        <li>
+          <a href="#">原型继承</a>
+        </li>
+        <li>
+          <a href="#">闭包</a>
+        </li>
+      </ol>
+    </li>
+  </ul>
+</body>
+
+</html>
