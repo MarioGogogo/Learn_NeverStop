@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <title>优化html标签</title>
+</head>
+
+<body>
+  <form action="" id="register">
+    <input type="text" name="user-name">
+    <input type="password" name="password">
+    <select name="sex" id="sex">
+      <option value="1">nv</option>
+      <option value="0">name</option>
+    </select>
+    <input type="button" id="btn" value="提交">
+  </form>
+  <script>
+    //第一种方式获取
+    var form = document.getElementById('register');
+    var btn = document.getElementById('btn');
+    var name = form['user-name'].value;
+    var pwd = form['password'].value;
+    //第二种方式用jQuery封装函数获取form表单中的value值
+    $.fn.serializeForm = function () {
+      var o = {}
+      var a = this.serializeArray();
+      $.each(a, function () {
+        if (o[this.name] !== undefined) {
+          if (!o[this.name].push) {
+            o[this.name] = [o[this.name]];
+
+          }
+          o[this.name].push(this.value || '');
+        } else {
+          o[this.name] = this.value || '';
+
+        }
+      })
+      return o;
+    }
+    var userData = $('#register').serializeForm();
+    console.log(userData);
+    //{user-name: "", password: "", sex: "1"}
+
+    btn.on('click', function () {
+      console.log($('#register').serializeForm());
+    })
+
+
+  </script>
+</body>
+
+</html>
