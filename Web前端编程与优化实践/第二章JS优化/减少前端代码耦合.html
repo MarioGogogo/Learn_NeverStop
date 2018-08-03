@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>什么是耦合</h1>
+  <h2>表现是改了一点毛发而牵动全身，或者是想改的东西，需要一堆代码里找半天</h2>
+  <form action="">
+    <input type="hidden" name="page" value="2">
+    <textarea name="list" style="display:none">[{"username":"yin"},{}]</textarea>
+  </form>
+  <script>
+    function getAndShowData() {
+      var formData = getFormData();
+      $.ajax({
+        url: './search',
+        data: formData,
+        success: function (data) {
+          showResult(data);
+        }
+
+      })
+    }
+    $('#search').on("click", getAndShowData)
+    $('#search').on("click", function () {
+      //用户的搜索条件展示进行变化
+      changInputFilterShow();
+      getAndShowData();
+
+    })
+
+
+
+  </script>
+</body>
+
+</html>
