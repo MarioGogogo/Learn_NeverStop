@@ -1,0 +1,10 @@
+{
+    "preset": [
+        "es2015",
+        "latest"
+    ],
+    "plugins": [
+
+    ]
+
+}

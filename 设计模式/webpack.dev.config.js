@@ -8,6 +8,18 @@ module.exports = {
         path:__dirname,
         filename:'./release/bundle.js'
     },
+
+    moudle:{
+        rules:[
+            {
+                test:/\.js?$/,
+                exclude:/(node_module)/,
+                loader:'babel-loader'
+            }
+        ]
+    },
+
+
     plugins:[
         new HtmlWebpackPlugin({
             template:'./index.html'
