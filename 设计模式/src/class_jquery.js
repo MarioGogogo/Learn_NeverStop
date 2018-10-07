@@ -13,6 +13,7 @@ class Jquery {
     //...
   }
   addclass(name) {
+    namespace = "hello word"
     //...
   }
   html(data) {
