@@ -24,6 +24,7 @@
      }
      study(){
          alert(`现在她的名字是${this.name},她考试得分${this.number}`);
+
      }
  }
 
