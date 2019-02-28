@@ -1,6 +1,6 @@
 // selector 选择符   context上下文
 var A = function (selector, context) {
-   return A.fn.init(selector, context)
+   return new A.fn.init(selector, context)
 }
 
 A.fn = A.prototype = {
@@ -43,9 +43,39 @@ A.fn = A.prototype = {
       return this.length
    },
 }
+A.fn.init.prototype = A.fn;
 
+A.extend = A.fn.extend = function() {
+    var i      = 1,
+        len    = arguments.length,
+        target = arguments[0],
+    j;
+    if(i === len){
+       target = this;
+       i--;
+    }
+    //遍历参数中的扩展对象
+    for(;i<len;i++){
+       //遍历扩展对象中的属性
+       for(j in arguments[i]){
+          //扩展对象
+          target[j] = arguments[i][j]
+       }
+    }
+    console.log('返回对象',target);
+    return target
+}
 
-var demo = A('#demo')
+var demo = A.extend({first:1},{second:2},{third:3},{four:4},{five:5})
 console.log(demo);
-console.log('=============');
+
+var demo1 = A.extend(A.fn,{version:"1.0"})
+console.log(demo1);
+
+A.fn.extend({getVersion:function() {
+   return this.version
+}})
+
+console.log(A('demo').getVersion());
+
 
