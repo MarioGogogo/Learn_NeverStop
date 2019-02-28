@@ -25,7 +25,8 @@ A.fn = A.prototype = {
 }
 
 //test
-console.log(A.fn);
 
-console.log(A().size());
+console.log(A());
+
+console.log(A().size()); //2
 

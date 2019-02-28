@@ -1,6 +1,6 @@
 // selector 选择符   context上下文
 var A = function (selector, context) {
-   return A.fn.init(selector, context)
+   return new A.fn.init(selector, context)
 }
 
 A.fn = A.prototype = {
@@ -43,9 +43,9 @@ A.fn = A.prototype = {
       return this.length
    },
 }
+A.fn.init.prototype = A.fn;
 
-
-var demo = A('#demo')
+var demo = A('demo')
 console.log(demo);
 console.log('=============');
 

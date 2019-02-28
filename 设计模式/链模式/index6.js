@@ -14,11 +14,17 @@ A.fn = A.prototype = {
       return this;
    }
 }
-
+A.fn.init.prototype = A.fn;
 //test
-var demo = A('#demo');
+var demo = A('demo');
 
 console.log(demo);
+
+
 console.log('==============');
+console.log(A.fn.init);
+console.log(A.fn.init.prototype);
+
+console.log(A.fn.init === A.prototype.init);
 
 // console.log(demo.size());

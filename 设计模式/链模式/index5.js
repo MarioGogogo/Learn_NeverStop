@@ -10,7 +10,7 @@ A.fn = A.prototype = {
       return this.length
    },
    init: function (selector) {
-      console.log(this === A.fn ,this === A.prototype,this);
+      console.log(this === A.fn ,this === A.prototype,this); //init
       this[0]          = document.getElementById(selector)
            this.length = 1;
       return this;
@@ -21,6 +21,6 @@ A.fn = A.prototype = {
 var demo = A('demo');
 console.log(demo);
 var test = A('test')
-console.log(demo);
+console.log(test);
 console.log('==============');
 console.log(demo.size()); //为什么报错

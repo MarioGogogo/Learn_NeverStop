@@ -6,11 +6,10 @@ var A = function (selector) {
 A.fn = A.prototype = {
    length: 2,
    size  : function () {
-      console.log('sizefn ',this);
       return this.length
    },
    init: function (selector) {
-      console.log('initfn ',this); //fn
+      console.log('init:',this);
       this[0]          = document.getElementById(selector)
            this.length = 1;
       return this;
@@ -20,9 +19,10 @@ A.fn = A.prototype = {
 //test
 var demo = A('demo');
 
-console.log(demo);
-console.log(demo.size());
+console.log(demo); //{0: h1#demo, length: 1, size: ƒ, init: ƒ}
+console.log(demo.size()); //1
 console.log('==============');
 var test = A('test')
-console.log(demo);
+console.log(demo); //{0: p#test, length: 1, size: ƒ, init: ƒ}
+console.log(test); //{0: p#test, length: 1, size: ƒ, init: ƒ}
 
