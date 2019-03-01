@@ -20,7 +20,6 @@ var demo = A('demo');
 
 console.log(demo);
 
-
 console.log('==============');
 console.log(A.fn.init);
 console.log(A.fn.init.prototype);
