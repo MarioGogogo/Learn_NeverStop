@@ -1,0 +1,130 @@
+Vue 实例挂载的实现
+
+```javascript
+vm.$mount(vm.$options.el) 
+```
+#### 它到底做了哪些事情？
+> $mount 方法支持传入 2 个参数，第一个是 el，它表示挂载的元素，可以是字符串，也可以是 DOM 对象，如果是字符串在浏览器环境下会调用 query 方法转换成 DOM 对象的。第二个参数是和服务端渲染相关，在浏览器环境下我们不需要传第二个参数。
+
+#### 首先通过 $mount 实例方法去挂载 vm 的
+```javascript
+Vue.prototype.$mount = function (
+  el?: string | Element, //判断el是dom对象还是字符串
+  hydrating?: boolean
+): Component {
+  el = el && inBrowser ? query(el) : undefined
+  return mountComponent(this, el, hydrating)
+}
+
+```
+
+#### 它对 el 做了限制，Vue 不能挂载在 body、html 这样的根节点上
+![](http://book.52react.cn/20190321225828.png)
+```javascript
+export function query (el: string | Element): Element {
+  if (typeof el === 'string') {
+    const selected = document.querySelector(el)
+    if (!selected) {
+      process.env.NODE_ENV !== 'production' && warn(
+        'Cannot find element: ' + el
+      )
+      return document.createElement('div')
+    }
+    return selected
+  } else {
+    return el
+  }
+}
+```
+#### 没有定义 render 方法，则会把 el 或者 template 字符串转换成 render 方法
+![](http://book.52react.cn/20190321222849.png)
+如果有则直接调用 mount 的方法
+```
+  const options = this.$options
+  //判断render是否存在  template最终就是字符串
+  if (!options.render) {
+    let template = options.template
+    if (template) {
+      if (typeof template === 'string') {
+        if (template.charAt(0) === '#') {
+          template = idToTemplate(template)
+          /* istanbul ignore if */
+          if (process.env.NODE_ENV !== 'production' && !template) {
+            warn(
+              `Template element not found or is empty: ${options.template}`,
+              this
+            )
+          }
+        }
+      } else if (template.nodeType) {
+        template = template.innerHTML
+      } else {
+        if (process.env.NODE_ENV !== 'production') {
+          warn('invalid template option:' + template, this)
+        }
+        return this
+      }
+    } else if (el) {
+      template = getOuterHTML(el)
+    }
+```
+> Vue 的组件的渲染最终都需要 render 方法
+
+#### 然后分析mountComponent
+
+> mountComponent 核心就是先调用 vm._render 方法先生成虚拟 Node，再实例化一个渲染Watcher，在它的回调函数中会调用 updateComponent 方法，最终调用 vm._update 更新 DOM
+
+
+```javascript
+export function mountComponent (
+  vm: Component,
+  el: ?Element,
+  hydrating?: boolean
+): Component {
+  vm.$el = el
+  if (!vm.$options.render) {
+    vm.$options.render = createEmptyVNode //虚拟 Node
+    if (process.env.NODE_ENV !== 'production') {
+      /* istanbul ignore if */
+      if ((vm.$options.template && vm.$options.template.charAt(0) !== '#') ||
+        vm.$options.el || el) {
+```
+
+
+
+
+
+getOuterHTML的方法
+```
+function getOuterHTML (el: Element): string {
+  if (el.outerHTML) {
+    return el.outerHTML
+  } else {
+    const container = document.createElement('div')
+    container.appendChild(el.cloneNode(true))
+    return container.innerHTML
+  }
+}
+```
+
+
+new Watcher
+
+vm._render() ==> 生成vnode
+```
+    updateComponent = () => {
+      vm._update(vm._render(), hydrating)
+    }
+  }
+
+  new Watcher(vm, updateComponent, noop, {
+    before () {
+      if (vm._isMounted && !vm._isDestroyed) {
+        callHook(vm, 'beforeUpdate')
+      }
+    }
+  }, true /* isRenderWatcher */)
+  hydrating = false
+```
+
+**函数最后判断为根节点的时候设置 vm._isMounted 为 true， 表示这个实例已经挂载了，同时执行 mounted 钩子函数。**
