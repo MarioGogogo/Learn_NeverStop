@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>vue-demo</title>
+	</head>
+	<body>
+		<div id="vue-app">
+			<input type="text" v-model="word">
+			<p>{{word}}</p>
+			<button v-on:click="sayHi">change model</button>
+		</div>
+		<script src="../js/observer.js"></script>
+		<script src="../js/watcher.js"></script>
+		<script src="../js/compile.js"></script>
+		<script src="../js/mvvm.js"></script>
+		<script>
+			var vm = new MVVM({
+				el: '#vue-app',
+				data: {
+					word: 'Hello World!'
+				},
+
+				methods: {
+					sayHi: function() {
+						this.word = 'Hi, everybody!';
+					}
+				},
+			});
+			console.log(vm.word);
+			vm.word = "你好1，Vue"
+			console.log(vm);
+			console.log(vm._data.word);
+		</script>
+	</body>
+</html>
