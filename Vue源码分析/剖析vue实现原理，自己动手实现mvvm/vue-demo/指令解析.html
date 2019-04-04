@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>vue-模板解析</title>
+		<style>
+			  .text{
+					 color:red;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="vue-app">
+			<p v-text="mytext"></p>
+			<p v-html="myhtml"></p>
+			<p v-class="myClass">情人节快乐</p>
+		</div>
+		<script src="../js/observer.js"></script>
+		<script src="../js/watcher.js"></script>
+		<script src="../js/compile.js"></script>
+		<script src="../js/mvvm.js"></script>
+		<script>
+			var vm = new MVVM({
+				el: '#vue-app',
+				data: {
+					mytext: 'Hello World!',
+					myhtml:"<h1>😊哈哈</h1>",
+					myClass:"text"
+				},
+			});
+		</script>
+	</body>
+</html>

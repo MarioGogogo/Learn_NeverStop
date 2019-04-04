@@ -2,13 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>vue-模板解析</title>
+		<title>vue-数据绑定</title>
 	</head>
 	<body>
 		<div id="vue-app">
 			<input type="text" v-model="word">
-			<p>{{word}}</p>
-			<button v-on:click="sayHi">change model</button>
+			<p>{{name}}</p>
+			<button v-on:click="update">change model</button>
 		</div>
 		<script src="../js/observer.js"></script>
 		<script src="../js/watcher.js"></script>
@@ -18,20 +18,16 @@
 			var vm = new MVVM({
 				el: '#vue-app',
 				data: {
-					word: 'Hello World!',
+					name: 'Hello World!',
 					sex:"👩",
 					play:"sexGrily"
 				},
 				methods: {
-					sayHi: function() {
-						this.word = 'Hi, everybody!';
+					update: function() {
+						this.name = 'Hi, everybody!';
 					}
 				},
 			});
-			console.log(vm.word);
-			vm.word = "你好1，Vue"
-			console.log(vm);
-			console.log(vm._data.word);
 		</script>
 	</body>
 </html>

@@ -11,11 +11,13 @@ Observer.prototype = {
         });
     },
     convert: function(key, val) {
+		//响应式
         this.defineReactive(this.data, key, val);
     },
 
     defineReactive: function(data, key, val) {
         var dep = new Dep();
+		// 为什么继续调用observe 如果data中对象存在 a:{b:{c:1}}
         var childObj = observe(val);
 
         Object.defineProperty(data, key, {
