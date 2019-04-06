@@ -72,8 +72,8 @@ Compile.prototype = {
 				// 事件指令 exp表达式 也就是 方法名
 				if (me.isEventDirective(dir)) {
 					compileUtil.eventHandler(node, me.$vm, exp, dir);
-					// 普通指令
 				} else {
+					// 普通指令
 					compileUtil[dir] && compileUtil[dir](node, me.$vm, exp);
 				}
         //移除指令属性
@@ -119,6 +119,7 @@ var compileUtil = {
 	},
 	
 	model: function(node, vm, exp) {
+		// 实现初始化显示  创建对应watcher
 		this.bind(node, vm, exp, 'model');
 
 		var me = this,
@@ -130,6 +131,7 @@ var compileUtil = {
 			}
 
 			me._setVMVal(vm, exp, newValue);
+			//保存新值
 			val = newValue;
 		});
 	},

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>vue-模板解析</title>
+		<style>
+			  .text{
+					 color:red;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="vue-app">
+			 <input type="text" v-model="mytext">
+	     <h1>{{mytext}}</h1>
+		</div>
+		<script src="../js/observer.js"></script>
+		<script src="../js/watcher.js"></script>
+		<script src="../js/compile.js"></script>
+		<script src="../js/mvvm.js"></script>
+		<script>
+			var vm = new MVVM({
+				el: '#vue-app',
+				data: {
+					mytext: 'Hello World!'
+				},
+			});
+		</script>
+	</body>
+</html>
