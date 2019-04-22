@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+      //过滤唯一值
+      // 过滤重复的值   适合值类型  不适合引用类型
+      const array = [1,2,3,3,4,5,5,1]
+       const uniqueArray = [...new Set(array)]
+       console.log(uniqueArray)
+
+      //短路求值
+      let one = 1,two=2,three =3;
+      console.log( one && two && three) //3
+      console.log(0 || null) // null  当所有的操作数都是false时，将返回最后一个表达式的结果。
+      console.log(0 || 123)
+      console.log(0 && null) // 0
+     //模拟数据
+     //  console.log(this.state.data || [])
+    //转换String型
+     const val = 1 + "";
+      console.log(val , typeof val)
+    //转number
+     const int = "14"
+      console.log(+int) //14
+
+    //幂运算
+      const n = 2
+    console.log(Math.pow(2, n),
+      2 << (n - 1),
+      2**n)
+
+    //快速Float转Integer  将浮点数截断为整数
+      console.log(23.9 | 0);  // Result: 23
+      console.log(23.1 | 0);  // Result: 23
+      console.log(-23.9 | 0); // Result: -23
+      console.log(-23.1 | 0); // Result: -23
+
+
+      console.log(1553 / 10   | 0)  // Result: 155
+      console.log(1553 / 100  | 0)  // Result: 15
+      console.log(1553 / 1000 | 0)  // Result: 1
+
+      // 类中自动绑定  在react中
+      // 使用方法  this.post.bind(this)
+      // 而现在可以使用
+      //  shit.post()
+      //  post=()=>{}
+
+      // 9、截取数组
+
+      let array0 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      array0.length = 4;
+      console.log(array0); // [0, 1, 2, 3]
+
+
+      // slice速度更快
+      let array1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      array1 = array1.slice(0, 4);
+      console.log(array1); // Result: [0, 1, 2, 3]
+
+
+      // 10、获取数组中的最后的元素
+      // 数组方法slice()可以接受负整数，(不需要知道数组的长度)
+      // 如果提供它，它将从数组的末尾开始截取数值，而不是开头。
+      let array3 = [{a:1},{b:2},{c:3},{d:4},{e:5}];
+
+      console.log(array3.slice(-1)); // Result: [9]
+      console.log(array3.slice(-2)); // Result: [8, 9]
+      console.log(array3.slice(-3)); // Result: [7, 8, 9]
+
+      // 11、格式化JSON代码
+      console.log(JSON.stringify({ alpha: 'A', beta: 'B' }));
+      console.log(JSON.stringify({ alpha: 'A', beta: 'B' }, null, '\t'));
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
