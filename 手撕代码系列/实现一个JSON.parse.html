@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+  // 用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。提供可选的reviver函数用以在返回之前对所得到的对象执行变换(操作)。
+
+  function jsonParse(opt) {
+
+    return eval('(' + opt + ')');
+
+  }
+
+  console.log(jsonParse(jsonStringify({x: 1, y: undefined, z: null})))
+
+
+  let jsonStr = '{ "age": 20, "name": "jack" }'
+
+  let json = (new Function('return' + jsonStr))();
+  console.log(json)
+
+
+
+
+
+  function jsonStringify(obj) {
+    let type = typeof obj
+    if (type !== "object" || type === null) {
+      if (/string|undefined|function/.test(type)) {
+        obj = '"' + obj + '"';
+      }
+      return String(obj)
+    } else {
+      let json = [];
+      // typeof []也是object 继续判断是否是数组
+      arr = (obj && obj.constructor === Array);
+      // 遍历对象
+      for (let k in obj) {
+        let v = obj[k];
+        let type = typeof v;
+        if (/string|undefined|function/.test(type)) {
+          v = '"' + v + '"';
+        } else if (type === "object") {
+          //判断如果是object继续递归
+          v = jsonStringify(type);
+        }
+        json.push((arr ? "" : '"'+ k + '":')+String(v))
+      }
+      return (arr ? "[" : "{") + String(json)+(arr ? "]" : "}")
+    }
+  }
+
+
+
+</script>
+</body>
+</html>

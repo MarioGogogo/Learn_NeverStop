@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 实现一个instanceof
+   * instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。
+   * @returns {boolean}
+   */
+  function newInstanceof() {
+         let proto = left.__proto__;
+         let prototype = right.prototype;
+         while (true){
+           if(proto == null) return false
+           if(proto == prototype) return false
+           proto = proto.__proto__;
+         }
+      }
+
+
+</script>
+</body>
+</html>

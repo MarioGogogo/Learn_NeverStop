@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  var foo = {
+    value: 1,
+    bar: function () {
+      console.log(this.value)
+    }
+  }
+  foo.bar() // 1
+
+
+  /**
+   * 实现call
+   * @param content
+   * @returns {*}
+   */
+  Function.prototype.newcall = function (content = window) {
+    //this指的是bar(name,age)
+    content.fn = this;
+    // 取出参数中的第一个参数 与其他参数
+    let args = [...arguments].slice(1);
+    let result = content.fn(...args);
+
+    delete content.fn;
+    return result;
+  }
+  let foo = {
+    value: 1
+  }
+
+  function bar(name, age) {
+    console.log(name)
+    console.log(age)
+    console.log(this.value)
+  }
+
+  bar.newcall(foo, 'jack', 18);
+
+  Function.prototype.newapply = function (content = window) {
+
+    content.fn = this;
+    let result;
+    //判断是否有第二个参数
+    if (arguments[1]) {
+      result = content.fn(...arguments[1]);
+    } else {
+      result = content.fn()
+    }
+    delete content.fn;
+    return result;
+  }
+
+  bar.newapply(foo, ["jack"])
+
+  console.log(Math.max.newapply(null, [1, 2, 3]))
+
+
+</script>
+
+</body>
+</html>
