@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+     // 网上推荐版本深拷贝
+     // let newObj = JSON.parse( JSON.stringify( someObj ) );
+
+     let a = [{a:1},{b:2}];
+     let b = {a:{x:1,y:2},b:[1,2,3]};
+
+     function deepClone(obj) {
+      let  result = null;
+       if(typeof obj === "object"){
+          //判断是数组还是对象
+           result = obj.constructor == Array ? []:{}
+          for(let i in obj){
+            result[i] = typeof  obj[i] == "object" ? deepClone(obj[i]) : obj[i];
+          }
+       }else{
+          result = obj;
+       }
+       return result;
+     }
+
+
+
+
+
+
+</script>
+</body>
+</html>

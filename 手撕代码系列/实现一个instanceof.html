@@ -9,20 +9,53 @@
 </head>
 <body>
 <script>
+
+    function F() {
+       this.name = name;
+       get:()=>{
+         console.log('这是一个获取方法',this)
+      }
+    }
+
+    F.prototype.get_pro = function () {
+      console.log('这是一个原型实例上的方法',this)
+    }
+
+    let w = new F();
+
+    console.log(w instanceof F);
+
   /**
    * 实现一个instanceof
    * instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。
    * @returns {boolean}
    */
-  function newInstanceof() {
+  function newInstanceof(left,right) {
+         //获取实例的原型对象
          let proto = left.__proto__;
+         //获取构造函数的原型对象
          let prototype = right.prototype;
+         //默认判断true
          while (true){
+           //如果实例对象为空 则为false
            if(proto == null) return false
-           if(proto == prototype) return false
+           //如果原型对象 === 构造函数的原型对象 则判断true
+           if(proto == prototype) return true
+           //否则继续想原型对象的上一级寻找原型对象，一直找到Object为止
            proto = proto.__proto__;
          }
       }
+
+    function W(){
+      get:()=>{
+        console.log(this)
+      }
+       console.log('我是w')
+    }
+   console.log(newInstanceof(w,F))
+
+    console.log(newInstanceof(w,W))
+    console.log(newInstanceof(w,Object))
 
 
 </script>
