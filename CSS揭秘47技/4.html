@@ -6,8 +6,48 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>边框圆角</title>
+    <style>
+        .radius{
+            background: #655;
+            padding: 0.8em;
+            width: 200px;
+        }
+        .radius div{
+            background: tan;
+            border-radius: .8em;
+            padding: 1em;
+        }
+        .radius1{
+            width: 200px;
+            padding-left: 20px;
+        }
+        .radius1 div{
+            background: tan;
+            border-radius: 0.8em;
+            padding: 0.6em;
+            -webkit-box-shadow: 0 0 0 .6em  #855;
+            -moz-box-shadow: 0 0 0 0.6em #855 ;
+            box-shadow: 0 0 0 0.6em #855;
+            /*outline: .6em solid #655;*/
+        }
+    </style>
 </head>
 <body>
-
+<h1>边框直角</h1>
+<div class="radius">
+    <div>
+        i have a nice subtel inner rounding
+        dont ilock pretty?
+    </div>
+</div>
+<br>
+<br>
+<h1>用boxshadow假的边框</h1>
+<div class="radius1">
+    <div>
+        i have a nice subtel inner rounding
+        dont ilock pretty?
+    </div>
+</div>
 </body>
 </html>
