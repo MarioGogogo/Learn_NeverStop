@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .img{
+            width: 300px;
+            height: 300px;
+            border: 10px solid magenta;
+            padding: 10px;
+            background:url("telegram.svg") no-repeat #5893B7;
+            background-position: right 10px bottom 10px;
+        }
+        .img1{
+            width: 300px;
+            height: 300px;
+            border: 10px solid magenta;
+            padding: 10px;
+            background:url("telegram.svg") no-repeat #9cdb25;
+            background-position: right 10px bottom 10px;
+            background-origin: content-box;
+        }
+        .img2{
+            width: 300px;
+            height: 300px;
+            border: 10px solid magenta;
+            padding: 10px;
+            background:url("telegram.svg") no-repeat #9cdb25;
+            /*水平偏移量  垂直偏移量*/
+            background-position:calc(100% - 20px) calc(100% - 10px);
+        }
+    </style>
+</head>
+<body>
+     <h1>灵活的背景定位</h1>
+     <!--position的left top 到底是参照哪个左上角-->
+     <!--默认情况是参照paddingbox 这样图片不会倍遮挡-->
+     <div class="img">
+     </div>
+     <br>
+     <br>
+     <div class="img1"></div>
+     <br>
+     <br>
+     <h1>可以使用calc</h1>
+     <div class="img2"></div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .border{
+            width: 300px;
+            height: 100px;
+            margin-left: 100px;
+            background: yellowgreen;
+            box-shadow: 0 0 0 10px #655;
+        }
+        .border2{
+            width: 300px;
+            height: 100px;
+            margin-left: 100px;
+            background: yellowgreen;
+            box-shadow: 0 0 0 10px #655,
+                        0 0 0 15px deeppink,
+                        0 2px 15px 15px rgba(0,0,0,.6);
+        }
+        .border3{
+            width: 300px;
+            height: 100px;
+            margin-left: 100px;
+            background: yellowgreen;
+            box-shadow: 0 0 0 10px #655 inset,
+            0 0 0 15px deeppink inset,
+            0 2px 15px 15px rgba(0,0,0,.6);
+        }
+        .border4{
+            width: 300px;
+            height: 100px;
+            margin-left: 100px;
+            background: yellowgreen;
+            border:10px solid #655;
+            outline: 5px solid deeppink;
+        }
+        .border5{
+            width: 300px;
+            height: 100px;
+            margin-left: 100px;
+            background: yellowgreen;
+            border:10px solid #655;
+            outline: 5px solid deeppink;
+            outline-offset: 22px;/*或者负值 -22px */
+        }
+
+        .border6{
+            width: 300px;
+            height: 100px;
+            margin-left: 100px;
+            background: yellowgreen;
+            border:10px solid #655;
+            outline: 5px solid deeppink;
+            border-radius: 14px;
+        }
+    </style>
+</head>
+<body>
+       <h1>多重边框</h1>
+       <div class="border">多重边框效果与border一样</div>
+       <br>
+       <br>
+       <div class="border2">多重边框效果2</div>
+       <br>
+       <br>
+       <div class="border3">多重边框效果2</div>
+       <br>
+       <br>
+       <div class="border4">多重边框效果4 outline</div>
+       <br>
+       <br>
+       <div class="border5">多重边框效果5 outline</div>
+       <br>
+       <br>
+        <h1>边框不一定要贴合圆角 这是一个bug未来可以改善</h1>
+       <div class="border6">多重边框效果6 outline</div>
+
+</body>
+</html>

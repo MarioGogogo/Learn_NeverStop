@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+     *{
+       margin: 0;
+       padding: 0;
+
+     }
+     body{
+         background: #fff;
+     }
+     .btn1{
+        padding: .3em .8em;
+        border:1px solid rgba(0, 0, 0, .1);
+        background: #585858 linear-gradient(hsla(0,0%,100%,.2),transparent);
+        border-radius:.2em;
+        box-shadow: 0 0.5em .25em rgba(92, 92, 92, 0.5);
+        color: white;
+        text-shadow: 0 -0.05em 0.05em rgba(0,0,0,.5);
+        font-size: 125%;
+        line-height: 1.5;
+        outline:none
+     }
+     button.cancel{
+        background-color: #ff793f;
+     }
+     button.ok{
+       background-color: #6b0;
+     }
+     .talk{
+         border: 1px solid #000;
+         height: 200px;
+         position: relative;
+     }
+      .talk .dialog{
+          position: absolute;
+          left:3px;
+          top: 30px;
+          border: 2px solid #f9181a;
+          border-radius: 3px;
+          position: relative;
+          background: #f9825f;
+          width: 170px;
+          padding: 4px;
+          padding-top: 6px;
+      }
+     .talk .dialog:before{
+         content: '';
+         position: absolute;
+         top:-.7em;
+         left: 1em;
+         padding: .55em;
+         /*background: #00007F;*/
+         border-right: 0;
+         border-bottom: 0;
+         transform: rotate(45deg);
+         background: inherit;
+
+     }
+  </style>
+</head>
+<body>
+      <!--改变颜色原先的方案是要设置border background box-shadow text-shadow四个属性比较麻烦-->
+      <!--现在只要改变background-->
+      <button class="btn1 cancel">按钮1</button>
+      <button class="btn1 ok">按钮2</button>
+      <hr>
+      <hr>
+      <h1>合理使用inherit</h1>
+
+      <div class="talk">
+          <p>you uername:leaverou</p>
+          <div class="dialog">拉倒发啊拉都发了拉倒发</div>
+      </div>
+
+
+</body>
+</html>
