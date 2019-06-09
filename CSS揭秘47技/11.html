@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .pic{
+            width: 280px;
+            transform: rotate(45deg);
+            overflow: hidden;
+        }
+        .pic >img{
+            max-width: 100%;
+            transform: rotate(-45deg);
+        }
+        .pic1{
+            width: 280px;
+            transform: rotate(45deg);
+            overflow: hidden;
+            margin-left: 100px;
+        }
+        .pic1 >img{
+            max-width: 100%;
+            transform: rotate(-45deg) scale(1.42);
+        }
+        .pic2{
+            max-width: 250px;
+            margin: 20px;
+            -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+            transition: 1s;
+        }
+
+      .pic2:hover {
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    </style>
+</head>
+<body>
+     <div class="pic">
+         <img src="http://csssecrets.io/images/adamcatlace.jpg" alt="31">
+     </div>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <div class="pic1">
+         <img src="http://csssecrets.io/images/adamcatlace.jpg" alt="31">
+     </div>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <div class="pic2">
+         <img src="http://csssecrets.io/images/adamcatlace.jpg" alt="31">
+     </div>
+</body>
+</html>
