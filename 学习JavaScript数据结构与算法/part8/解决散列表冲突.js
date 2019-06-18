@@ -7,7 +7,7 @@ class HashTableSeparateChining {
   }
   //put
   put(key, value) {
-    if (key != null && value != null) {
+    if (key != null && value != null) {  
       const position = this.hashCode(key);
       if (this.table[position] == null) {
         //增加链表结构
