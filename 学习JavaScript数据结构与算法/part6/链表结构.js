@@ -1,5 +1,5 @@
 import { defaultEquals } from "./utils";
-import { Node } from "./linked-list-models";
+import { Node } from "./linked-list-models"
 
 export default class LinkedList {
   constructor(equalsFn = defaultEquals) {
@@ -44,12 +44,12 @@ export default class LinkedList {
       return undefined;
     }
   }
-  //getElementAt
+  //getElementAt循环迭代链表找到目标位置
   getElement(index){
      if (index>0 && index< this.count) {
          let node  = this.head
          for (let i = 0; i < index && node != null ; i++) {
-            
+
             node = node.next
             
          }
@@ -58,4 +58,29 @@ export default class LinkedList {
         return undefined
      }
   }
+
+//indexof 返回一个元素的位置
+
+  indexOf(element){
+    let current = this.head
+    for (let i = 0; i < this.count && current != null; i++) {
+      if(this.equalsFn(element,current.element)){
+        return i
+      }
+      current = current.next
+    }
+    return -1; //返回找不到
+  }
+
+
+  // 从列表中移除元素
+  remove(element){
+    const index = this.indexOf(element)
+    return this.removeAt(index)
+  }
+
+  
+
+
+
 }
