@@ -20,7 +20,7 @@
 
 
 
-所以 Event Loop 执行顺序如下所示：
+ Event Loop 执行顺序如下所示：
 
 - 首先执行同步代码，这属于宏任务
 - 当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行
@@ -31,4 +31,51 @@
 微任务包括 `process.nextTick` ，`promise` ，`MutationObserver`，其中 `process.nextTick` 为 Node 独有。
 
 宏任务包括 `script` ， `setTimeout` ，`setInterval` ，`setImmediate` ，`I/O` ，`UI rendering`。
+
+
+
+## Node 中的 Event Loop
+
+Node 的 Event Loop 分为6 个阶段，它们会按照**顺序**反复运行。每当进入某一个阶段的时候，都会从对应的回调队列中取出函数去执行。当队列为空或者执行的回调函数数量到达系统设定的阈值，就会进入下一阶段。
+
+![image-20200329203034641](/Users/lovewcc/Documents/暴力熊团队/Learn_NeverStop/慕课面试md/image-20200329203034641.png)
+
+
+
+### timer
+
+timers 阶段会执行 `setTimeout` 和 `setInterval` 回调，并且是由 poll 阶段控制的。
+
+同样，在 Node 中定时器指定的时间也不是准确时间，只能是**尽快**执行。
+
+### I/O
+
+I/O 阶段会处理一些上一轮循环中的**少数未执行**的 I/O 回调
+
+### idle, prepare
+
+idle, prepare 阶段内部实现，这里就忽略不讲了。
+
+### poll
+
+poll 是一个至关重要的阶段，这一阶段中，系统会做两件事情
+
+1. 回到 timer 阶段执行回调
+2. 执行 I/O 回调
+
+### check
+
+check 阶段执行 `setImmediate`
+
+### close callbacks
+
+close callbacks 阶段执行 close 事件
+
+
+
+Node 中的 `process.nextTick`，这个函数其实是独立于 Event Loop 之外的，它有一个自己的队列，当每个阶段完成后，如果存在 nextTick 队列，就会**清空队列中的所有回调函数**，并且**优先于其他 microtask 执行**。
+
+
+
+
 
