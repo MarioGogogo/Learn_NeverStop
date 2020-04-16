@@ -38,7 +38,7 @@
 
 Node 的 Event Loop 分为6 个阶段，它们会按照**顺序**反复运行。每当进入某一个阶段的时候，都会从对应的回调队列中取出函数去执行。当队列为空或者执行的回调函数数量到达系统设定的阈值，就会进入下一阶段。
 
-![image-20200329203034641](/Users/lovewcc/Documents/暴力熊团队/Learn_NeverStop/慕课面试md/image-20200329203034641.png)
+![image-20200329203034641](/Users/lovewcc/Documents/07_前端学习/慕课面试md/image-20200329203034641.png)
 
 
 

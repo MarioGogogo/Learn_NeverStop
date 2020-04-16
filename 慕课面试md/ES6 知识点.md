@@ -86,3 +86,51 @@ require
 
 ### ES Module
 
+不支持动态导入
+
+异步导入，因为用于浏览器，需要下载文件，如果也采用同步导入会对渲染有很大影响
+
+## Proxy
+
+> Proxy 可以实现什么功能？
+
+
+
+ Vue3.0 中将会通过 `Proxy` 来替换原本的 `Object.defineProperty` 来实现数据响应式。 Proxy 是 ES6 中新增的功能，它可以用来自定义对象中的操作。
+
+
+
+## 数组map, filter, reduce
+
+`map` 作用是生成一个新数组，另外 `map` 的回调函数接受三个参数，分别是当前索引元素，索引，原数组
+
+`filter` 的作用也是生成一个新数组，在遍历数组的时候将返回值为 `true` 的元素放入新数组，我们可以利用这个函数删除一些不需要的元素
+
+`reduce` 可以将数组中的元素通过回调函数最终转换为一个值。
+
+```js
+const arr = [1, 2, 3]
+const sum = arr.reduce((acc, current) => acc + current, 0)
+console.log(sum)
+```
+
+`reduce` 来说，它接受两个参数，分别是回调函数和初始值
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
