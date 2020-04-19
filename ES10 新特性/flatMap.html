@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+      let array = [1,2,3,4,5]
+      const a = array.map(x=>[x,x*2])
+      console.log(a)
+      const b = a.flat()
+      console.log('b',b)
+
+      //数组合并在一起
+       const c =array.flatMap(v=>[v,v*2])
+      console.log(c)
+</script>
+</body>
+</html>

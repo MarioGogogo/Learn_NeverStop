@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <h1>flat</h1>
+     <script>
+           let multi = [1,2,3,[4,5,6,[7,8,[9,10]]]]
+
+           const a = multi.flat()
+           console.log(a)
+           const b = multi.flat().flat()
+           console.log('b',b)
+           const c = multi.flat(Infinity)
+           console.log(c)
+     </script>
+</body>
+</html>
