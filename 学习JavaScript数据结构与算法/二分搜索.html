@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+       let arr = [1,2,3,4,5,6]
+      function bindarySearch(arrary,value,compareFn = defaultCompare) {
+          const sortedArray = quickSort(array)
+          const low = 0
+          const high = sortedArray.length -1
+        
+          return bindarySearchRecursive(array,value,low,high,compareFn)
+      }
+
+      function bindarySearchRecursive(array,value,low,high,compareFn) {
+          if(low <= hight){
+             const mid = Math.floor((low + hight) / 2)
+             const element = array[mid]
+             if(compareFn(element,value) === Compare.LESS_THAN){
+                return bindarySearchRecursive(array,value,mid+1,hight,compareFn)
+             }else if(compareFn(element,value) === Compare.BIGGER_THAN){
+                return bindarySearchRecursive(array,value,mid-1,hight,compareFn)
+             }else{
+               return  mid
+             }
+          }
+          return DOES_NOT_EXIST
+      }
+
+
+
+
+
+</script>
+</body>
+</html>
