@@ -26,3 +26,4 @@ const myAtoi = function (str) {
 }
 
 myAtoi('-1212')
+

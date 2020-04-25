@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="906a35bb-6e7a-4bbb-b817-e7435c856386" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Untitled.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/算法与数据结构面试/链表的合并.js" beforeDir="false" afterPath="$PROJECT_DIR$/算法与数据结构面试/链表的合并.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +34,12 @@
   <component name="ProjectId" id="1al6BA0JZWfMcxbU2aSKjOgiP1O" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
@@ -102,7 +109,7 @@
       <workItem from="1560263779808" duration="1904000" />
       <workItem from="1560348819273" duration="2368000" />
       <workItem from="1560394304448" duration="7000" />
-      <workItem from="1587297696909" duration="146000" />
+      <workItem from="1587297696909" duration="1436000" />
     </task>
     <servers />
   </component>
