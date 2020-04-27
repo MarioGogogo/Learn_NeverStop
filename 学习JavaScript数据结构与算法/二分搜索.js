@@ -1,28 +1,36 @@
-//搜索
-function bindarySearch(arrary,value,compareFn = defaultCompare) {
-    const sortedArray = quickSort(array)
-    const low = 0
-    const high = sortedArray.length -1
+/**
+ * 二分搜索
+ * 前提顺序已经排序
+ */
+function quickSort(array) {
+  return array.sort();
+}
+let array = [ 1, 2, 3, 4, 5, 6 ];
+function bindarySearch(array, value) {
+  //返回已经排序的新数组
+  const sortedArray = quickSort(array);
+  //   设置下标 0 到最长一位下标
+  const low = 0;
+  const hight = sortedArray.length - 1;
 
-    return bindarySearchRecursive(array,value,low,high,compareFn)
+  return bindarySearchRecursive(array, value, low, hight);
 }
 
-function bindarySearchRecursive(array,value,low,high,compareFn) {
-    if(low <= hight){
-       const mid = Math.floor((low + hight) / 2)
-       const element = array[mid]
-       if(compareFn(element,value) === Compare.LESS_THAN){
-          return bindarySearchRecursive(array,value,mid+1,hight,compareFn)
-       }else if(compareFn(element,value) === Compare.BIGGER_THAN){
-          return bindarySearchRecursive(array,value,mid-1,hight,compareFn)
-       }else{
-         return  mid
-       }
+function bindarySearchRecursive(array, value, low, hight) {
+  if (low <= hight) {
+    //找中间值
+    const mid = Math.floor((low + hight) / 2);
+    if (array[mid] < value) {
+      //递归重新找一次
+      return bindarySearchRecursive(array, value, mid + 1, hight);
+    } else if (array[mid] > value) {
+      //递归重新找一次
+      return bindarySearchRecursive(array, value, mid - 1, hight);
+    } else {
+      return mid;
     }
-    return DOES_NOT_EXIST
+  }
+  return -1;
 }
 
-
-let arr = [1,2,3,4,5,6]
-
-console.log('123');
+console.log(bindarySearch(array, 6));

@@ -46,10 +46,11 @@ function radixSort(array, radixBase = 10) {
 
 function countingSortForRadix(array, radixBase, significantDigit, minValue) {
   let bucketsIndex;
+  // 基数初始化桶
   const buckets = [];
   // 创建临时数组 作用：帮助后面移值到原始数组中
   const tmp = [];
-  // 基数初始化桶
+
   for (let i = 0; i < radixBase; i++) {
     buckets[i] = 0;
   }
@@ -79,7 +80,7 @@ function countingSortForRadix(array, radixBase, significantDigit, minValue) {
   for (let i = 1; i < radixBase; i++) {
     buckets[i] += buckets[i - 1];
   }
-
+  console.log('累积结果得到计数值', buckets);
   // 倒叙重新放入临时数组;
   for (let i = array.length - 1; i >= 0; i--) {
     bucketsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
