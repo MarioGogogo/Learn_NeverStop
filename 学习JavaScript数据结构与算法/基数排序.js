@@ -83,7 +83,9 @@ function countingSortForRadix(array, radixBase, significantDigit, minValue) {
   console.log('累积结果得到计数值', buckets);
   // 倒叙重新放入临时数组;
   for (let i = array.length - 1; i >= 0; i--) {
+    //计算有效位进行计数排序
     bucketsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
+    //找buckets中有效位对应的下标
     tmp[--buckets[bucketsIndex]] = array[i];
   }
 
