@@ -33,6 +33,7 @@ function quickSort(array) {
 function quick(array, left, right) {
   let index;
   if (array.length > 1) {
+    //排序找到要移动的位置
     index = partition(array, left, right);
     if (left < index - 1) {
       quick(array, left, index - 1); //[3,5,1,2,4]
