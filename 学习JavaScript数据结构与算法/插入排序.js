@@ -32,6 +32,7 @@ function insertionSort(array) {
     temp = array[i]; //储存一个临时变量
     //每一次都比较当前索引之前的序列全都比较一遍
     //比如【3，2，1，5】，当前1 要跟 2 3都比较一遍 下一次5 跟 3，2，1 都比较一遍
+    //array[j - 1] 是前面一个数 temp后面一个数
     while (j > 0 && array[j - 1] > temp) {
       array[j] = array[j - 1];
       j--;
