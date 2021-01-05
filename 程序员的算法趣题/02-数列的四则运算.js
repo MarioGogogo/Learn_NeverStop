@@ -1,9 +1,5 @@
-/*
- * @Descripttion:
- * @Author: Mario
- * @Date: 2021-01-04 22:42:42
- * @LastEditors: Maroi
- * @LastEditTime: 2021-01-04 22:49:27
+/**
+ * 1234 -> 1+2*3 - 4 = 3
  */
 let start = 1000,
   end = 9999;
